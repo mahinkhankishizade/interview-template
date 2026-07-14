@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.db import init_schema, pool
-from app.routes import health, users
+from app.routes import conversations, health, queries, users
 
 
 @asynccontextmanager
@@ -20,3 +20,5 @@ app = FastAPI(title="Borderless Interview API", lifespan=lifespan)
 
 app.include_router(health.router)
 app.include_router(users.router)
+app.include_router(conversations.router)
+app.include_router(queries.router)
